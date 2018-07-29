@@ -1,0 +1,6 @@
+<apex:page standardController="Account">
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>Sample Account</h1>
+  This is your new Page: SampleAccountPage
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

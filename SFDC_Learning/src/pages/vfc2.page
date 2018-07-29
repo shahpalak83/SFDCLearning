@@ -1,0 +1,19 @@
+<apex:page controller="cc2" extensions="ext1">
+  <!-- Begin Default Content REMOVE THIS -->
+  <apex:pageBlock Title="List of my Accounts">
+      <apex:pageBlockTable value="{!ListAcc}" var="acc">
+          <apex:column value="{!acc.id}"/>
+          <apex:column value="{!acc.name}"/>
+      </apex:pageBlockTable>
+  </apex:pageBlock>
+  <!-- End Default Content REMOVE THIS -->
+  <apex:sectionHeader title="Section Example"/>
+  <apex:pageBlock Title="List of my Opportunities">
+      <apex:pageBlockTable value="{!ListOpp}" var="opt">
+          <apex:column value="{!opt.Id}"/>
+          <apex:column value="{!opt.Name}"/>
+      
+      </apex:pageBlockTable>      
+  </apex:pageBlock>
+  <p>{!ext1M1}</p>
+</apex:page>

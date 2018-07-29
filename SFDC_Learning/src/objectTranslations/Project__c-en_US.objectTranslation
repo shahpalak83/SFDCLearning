@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Project</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Projects</value>
+    </caseValues>
+    <fields>
+        <label><!-- In_Service_A --></label>
+        <name>In_Service_A__c</name>
+    </fields>
+    <fields>
+        <label><!-- In_Service_F --></label>
+        <name>In_Service_F__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project_Start_A --></label>
+        <name>Project_Start_A__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project_Start_F --></label>
+        <name>Project_Start_F__c</name>
+    </fields>
+    <fields>
+        <label><!-- Site --></label>
+        <name>Site__c</name>
+        <relationshipLabel><!-- Projects --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

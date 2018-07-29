@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Is SMS Sent --></label>
+        <name>ClickSendSMS__Is_SMS_Sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last SMS Sent On --></label>
+        <name>ClickSendSMS__Last_SMS_Sent_On__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data Quality Description --></label>
+        <name>Data_Quality_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data Quality Score --></label>
+        <name>Data_Quality_Score__c</name>
+    </fields>
+    <fields>
+        <label><!-- Languages --></label>
+        <name>Languages__c</name>
+    </fields>
+    <fields>
+        <label><!-- Level --></label>
+        <name>Level__c</name>
+        <picklistValues>
+            <masterLabel>Primary</masterLabel>
+            <translation><!-- Primary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Secondary</masterLabel>
+            <translation><!-- Secondary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tertiary</masterLabel>
+            <translation><!-- Tertiary --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Prequalified Amount --></help>
+        <label><!-- Prequalified Amount --></label>
+        <name>Prequalified_Amount__c</name>
+    </fields>
+    <fields>
+        <help><!-- This checkbox indicates whether user is prequalified for loan approval. --></help>
+        <label><!-- Prequalified --></label>
+        <name>Prequalified__c</name>
+    </fields>
+    <fields>
+        <label><!-- SSN --></label>
+        <name>SSN__c</name>
+    </fields>
+    <recordTypes>
+        <label><!-- Customer --></label>
+        <name>Customer</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Internal Employee --></label>
+        <name>Internal_Employee</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Partners --></label>
+        <name>Partners</name>
+    </recordTypes>
+    <webLinks>
+        <label><!-- Send_SMS --></label>
+        <name>ClickSendSMS__Send_SMS</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_SMS_to_All --></label>
+        <name>ClickSendSMS__Send_SMS_to_All</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_SMS_to_Selected --></label>
+        <name>ClickSendSMS__Send_SMS_to_Selected</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Google_Info --></label>
+        <name>Google_Info</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_with_DocuSign --></label>
+        <name>dsfs__Send_with_DocuSign</name>
+    </webLinks>
+</CustomObjectTranslation>

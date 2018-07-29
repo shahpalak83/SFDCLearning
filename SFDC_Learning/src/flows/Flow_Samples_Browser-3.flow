@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <choices>
+        <name>Convert_Lead</name>
+        <choiceText>Convert Lead</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Create_and_Attach_PDF_Document</name>
+        <choiceText>Create and Attach PDF Document</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Forms</name>
+        <choiceText>Review sample Forms</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Forms</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>I_am_done_go_Back</name>
+        <choiceText>I am done with Flows, take me back</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>I_am_done_with_Apex_Plug_ins_take_me_back</name>
+        <choiceText>I am done with Apex Plug-ins, take me back</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Review_sample_Apex_Plug_ins</name>
+        <choiceText>Review sample Apex Plug-ins</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Review_sample_Flows</name>
+        <choiceText>Review sample Flows</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Send_Email</name>
+        <choiceText>Send Email</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Submit_for_Approval</name>
+        <choiceText>Submit for Approval</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Surveys</name>
+        <choiceText>Review sample Surveys</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Surveys</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Wizards</name>
+        <choiceText>Review sample Wizards</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Wizards</stringValue>
+        </value>
+    </choices>
+    <constants>
+        <name>cAppTitle</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Visual Workflow Sample Pack application</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <name>Apex_Plug_in_Router</name>
+        <label>Apex Plug-in Router</label>
+        <locationX>329</locationX>
+        <locationY>453</locationY>
+        <defaultConnector>
+            <targetReference>SampleHome</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Go Home</defaultConnectorLabel>
+        <rules>
+            <name>Show_Convert_Lead</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Convert_Lead</leftValueReference>
+                <operator>WasSelected</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Run_Lead_Convert_Sample_Apex_Plugin_Flow</targetReference>
+            </connector>
+            <label>Show Convert Lead</label>
+        </rules>
+        <rules>
+            <name>Show_Send_Email</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Send_Email</leftValueReference>
+                <operator>WasSelected</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Run_Send_Email_Apex_Plugin_Sample_Flow</targetReference>
+            </connector>
+            <label>Show Send Email</label>
+        </rules>
+        <rules>
+            <name>Show_Create_and_Attach_PDF</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Create_and_Attach_PDF_Document</leftValueReference>
+                <operator>WasSelected</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Run_Create_and_Attach_Apex_Plugin_Sample_Flow</targetReference>
+            </connector>
+            <label>Show Create and Attach PDF</label>
+        </rules>
+        <rules>
+            <name>Show_Submit_for_Approval</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Submit_for_Approval</leftValueReference>
+                <operator>WasSelected</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Run_Submit_for_Approval_Apex_Plug_in_Sample</targetReference>
+            </connector>
+            <label>Show Submit for Approval</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Category_Router</name>
+        <label>Category Router</label>
+        <locationX>648</locationX>
+        <locationY>216</locationY>
+        <defaultConnector>
+            <targetReference>SampleHome</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Go Home</defaultConnectorLabel>
+        <rules>
+            <name>Lets_build_Forms</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Forms</leftValueReference>
+                <operator>WasSelected</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Run_Forms</targetReference>
+            </connector>
+            <label>Lets build Forms</label>
+        </rules>
+        <rules>
+            <name>Lets_build_Surveys</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Surveys</leftValueReference>
+                <operator>WasSelected</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Surveys_By_Flow</targetReference>
+            </connector>
+            <label>Lets build Surveys</label>
+        </rules>
+        <rules>
+            <name>Lets_build_Wizards</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Wizards</leftValueReference>
+                <operator>WasSelected</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Wizards_by_Flow</targetReference>
+            </connector>
+            <label>Lets build Wizards</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>What_to_review</name>
+        <label>What to review?</label>
+        <locationX>321</locationX>
+        <locationY>62</locationY>
+        <defaultConnector>
+            <targetReference>Sample_Apex_Plug_ins</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Review Sample Apex Plug-ins</defaultConnectorLabel>
+        <rules>
+            <name>LetsReview_Sample_Flows</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Review_sample_Flows</leftValueReference>
+                <operator>WasSelected</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SampleCategory</targetReference>
+            </connector>
+            <label>Review Sample Flows</label>
+        </rules>
+    </decisions>
+    <description>Flow to browse and try out various sample flows and Apex Plug-ins included in this pack.</description>
+    <label>Flow Samples Browser</label>
+    <processType>Flow</processType>
+    <screens>
+        <name>Sample_Apex_Plug_ins</name>
+        <label>Sample Apex Plug-ins</label>
+        <locationX>327</locationX>
+        <locationY>278</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Apex_Plug_in_Router</targetReference>
+        </connector>
+        <fields>
+            <name>Welcome_ApexPlugins</name>
+            <fieldText>&lt;SPAN ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;1&quot;&gt;&lt;B&gt;Visual Workflow Sample Apex Plug-in Classes&lt;/B&gt;&lt;FONT STYLE=&quot;font-size:12px&quot;&gt;&lt;/FONT&gt;&lt;/FONT&gt;&lt;/SPAN&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;1&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;1&quot;&gt;Visual Workflow lets the business take the driver’s seat when building an application. You can extend the logic in a flow by calling Apex classes, allowing developers to tackle more technical problems. When an Apex class implements the &lt;B&gt;Process.Plugin &lt;/B&gt;interface, you can drag and drop the class into the flow at any time to create an Apex plug-in element. You can find more information about the interface in the &lt;I&gt;Force.com Apex Code Developer&amp;apos;s Guide&lt;/I&gt;.&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;1&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;1&quot;&gt;The Visual Workflow Sample Pack includes several Apex plug-in classes to help you get started.&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>selectPlugin</name>
+            <choiceReferences>Convert_Lead</choiceReferences>
+            <choiceReferences>Send_Email</choiceReferences>
+            <choiceReferences>Create_and_Attach_PDF_Document</choiceReferences>
+            <choiceReferences>Submit_for_Approval</choiceReferences>
+            <choiceReferences>I_am_done_with_Apex_Plug_ins_take_me_back</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Here are your choices</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>EmptySection_1</name>
+            <fieldText>&lt;SPAN ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;/FONT&gt;&lt;/SPAN&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+    </screens>
+    <screens>
+        <name>SampleCategory</name>
+        <label>Sample Category</label>
+        <locationX>643</locationX>
+        <locationY>58</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Category_Router</targetReference>
+        </connector>
+        <fields>
+            <name>Welcome</name>
+            <fieldText>&lt;SPAN ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;B&gt;Visual Workflow Sample Browser&lt;/B&gt;&lt;/FONT&gt;&lt;/SPAN&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Flows are commonly used to:&lt;/FONT&gt;&lt;/DIV&gt;&lt;TEXTFORMAT LEADING=&quot;2&quot;&gt;&lt;LI&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Rapidly roll out various types of &lt;B&gt;forms.&lt;/B&gt;&lt;/FONT&gt;&lt;/LI&gt;&lt;/TEXTFORMAT&gt;&lt;TEXTFORMAT LEADING=&quot;2&quot;&gt;&lt;LI&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Quickly build &lt;B&gt;wizards&lt;/B&gt; to navigate users through screens with logic executed between them.&lt;/FONT&gt;&lt;/LI&gt;&lt;/TEXTFORMAT&gt;&lt;TEXTFORMAT LEADING=&quot;2&quot;&gt;&lt;LI&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Conduct &lt;B&gt;surveys.&lt;/B&gt;  &lt;/FONT&gt;&lt;/LI&gt;&lt;/TEXTFORMAT&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;This section of the &lt;FONT KERNING=&quot;1&quot;&gt;{!cAppTitle}&lt;/FONT&gt; includes several flows for each of these use cases.&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>selectFlowReviewAction</name>
+            <choiceReferences>Forms</choiceReferences>
+            <choiceReferences>Wizards</choiceReferences>
+            <choiceReferences>Surveys</choiceReferences>
+            <choiceReferences>I_am_done_go_Back</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Here are your choices</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>EmptySection</name>
+            <fieldText>&lt;SPAN ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;/FONT&gt;&lt;/SPAN&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+    </screens>
+    <screens>
+        <name>SampleHome</name>
+        <label>Sample Home</label>
+        <locationX>57</locationX>
+        <locationY>58</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>What_to_review</targetReference>
+        </connector>
+        <fields>
+            <name>HomeHeader</name>
+            <fieldText>&lt;SPAN ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;B&gt;Welcome to the Visual Workflow Sample Pack!&lt;/B&gt;&lt;/FONT&gt;&lt;/SPAN&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;The &lt;FONT KERNING=&quot;1&quot;&gt;{!cAppTitle} &lt;/FONT&gt;provides sample flows that illustrate common use cases for Visual Workflow. The application itself was built entirely with flows!&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;The application also highlights some powerful capabilities in Visual Workflow:&lt;/FONT&gt;&lt;/DIV&gt;&lt;TEXTFORMAT LEADING=&quot;2&quot;&gt;&lt;LI&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;The ease with which you can work with any record in Salesforce.&lt;/FONT&gt;&lt;/LI&gt;&lt;/TEXTFORMAT&gt;&lt;TEXTFORMAT LEADING=&quot;2&quot;&gt;&lt;LI&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;The powerful logic you can use in flows to creates branches and guide the users through business processes. &lt;/FONT&gt;&lt;/LI&gt;&lt;/TEXTFORMAT&gt;&lt;TEXTFORMAT LEADING=&quot;2&quot;&gt;&lt;LI&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;The ability to extend the logic in any flow by calling Apex classes. The package also includes a few useful Apex classes and shows you how to include them in your flows as Apex plug-in elements.&lt;/FONT&gt;&lt;/LI&gt;&lt;/TEXTFORMAT&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Included in this {!cAppTitle} are several Flows and Apex Plug-ins to help you get started.&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>selectAction</name>
+            <choiceReferences>Review_sample_Flows</choiceReferences>
+            <choiceReferences>Review_sample_Apex_Plug_ins</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>What would you like to do?</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+    </screens>
+    <startElementReference>SampleHome</startElementReference>
+    <subflows>
+        <name>Run_Create_and_Attach_Apex_Plugin_Sample_Flow</name>
+        <label>Run Create and Attach Apex Plugin Sample Flow</label>
+        <locationX>27</locationX>
+        <locationY>474</locationY>
+        <connector>
+            <targetReference>Sample_Apex_Plug_ins</targetReference>
+        </connector>
+        <flowName>Run_Create_and_Attach_PDF_Apex_Plug_in_Sample_Flow</flowName>
+    </subflows>
+    <subflows>
+        <name>Run_Forms</name>
+        <label>Run Forms</label>
+        <locationX>900</locationX>
+        <locationY>60</locationY>
+        <connector>
+            <targetReference>SampleCategory</targetReference>
+        </connector>
+        <flowName>Forms_By_Flow</flowName>
+    </subflows>
+    <subflows>
+        <name>Run_Lead_Convert_Sample_Apex_Plugin_Flow</name>
+        <label>Run Lead Convert Sample Apex Plugin Flow</label>
+        <locationX>692</locationX>
+        <locationY>445</locationY>
+        <connector>
+            <targetReference>Sample_Apex_Plug_ins</targetReference>
+        </connector>
+        <flowName>Run_Lead_Convert_Apex_Plug_in_Sample_Flow</flowName>
+    </subflows>
+    <subflows>
+        <name>Run_Send_Email_Apex_Plugin_Sample_Flow</name>
+        <label>Run Send Email Apex Plugin Sample Flow</label>
+        <locationX>584</locationX>
+        <locationY>560</locationY>
+        <connector>
+            <targetReference>Sample_Apex_Plug_ins</targetReference>
+        </connector>
+        <flowName>Run_Send_Email_Apex_Plug_in_Sample_Flow</flowName>
+    </subflows>
+    <subflows>
+        <name>Run_Submit_for_Approval_Apex_Plug_in_Sample</name>
+        <label>Run Submit for Approval Apex Plug-in Sample</label>
+        <locationX>145</locationX>
+        <locationY>601</locationY>
+        <connector>
+            <targetReference>Sample_Apex_Plug_ins</targetReference>
+        </connector>
+        <flowName>Run_Submit_for_Approval_Apex_Plug_in_Sample_Flow</flowName>
+    </subflows>
+    <subflows>
+        <name>Surveys_By_Flow</name>
+        <label>Surveys By Flow</label>
+        <locationX>953</locationX>
+        <locationY>247</locationY>
+        <connector>
+            <targetReference>SampleCategory</targetReference>
+        </connector>
+        <flowName>Surveys_By_Flow</flowName>
+        <outputAssignments>
+            <assignToReference>varSurveyTempate</assignToReference>
+            <name>varSurveyTempate</name>
+        </outputAssignments>
+    </subflows>
+    <subflows>
+        <name>Wizards_by_Flow</name>
+        <label>Wizards by Flow</label>
+        <locationX>964</locationX>
+        <locationY>405</locationY>
+        <connector>
+            <targetReference>SampleCategory</targetReference>
+        </connector>
+        <flowName>Wizards_by_Flow</flowName>
+    </subflows>
+    <variables>
+        <name>varSurveyTempate</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

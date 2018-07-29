@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <choices>
+        <name>Agree</name>
+        <choiceText>Agree</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Average</name>
+        <choiceText>Average</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Between_10_to_30_minutes</name>
+        <choiceText>Between 10 to 30 minutes</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Between_2_to_4_hours</name>
+        <choiceText>Between 2 to 4 hours</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Between_30_minutes_to_an_hour</name>
+        <choiceText>Between 30 minutes to an hour</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Between_4_to_8_hours</name>
+        <choiceText>Between 4 to 8 hours</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Between_8_to_12_hours</name>
+        <choiceText>Between 8 to 12 hours</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Customer_service_was_less_than_expected</name>
+        <choiceText>Customer service was less than expected</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Disagree</name>
+        <choiceText>Disagree</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Good</name>
+        <choiceText>Good</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>I_was_taken_care_of_immediately</name>
+        <choiceText>I was taken care of immediately.</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>In_Person</name>
+        <choiceText>In Person</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>More_than_12_hours</name>
+        <choiceText>More than 12 hours</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>More_than_4_hours</name>
+        <choiceText>More than 4 hours</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Neutral</name>
+        <choiceText>Neutral</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Never_used</name>
+        <choiceText>Never used</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Other</name>
+        <choiceText>Other</choiceText>
+        <dataType>String</dataType>
+        <userInput>
+            <isRequired>false</isRequired>
+        </userInput>
+    </choices>
+    <choices>
+        <name>Over_the_Telephone</name>
+        <choiceText>Over the Telephone</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Email</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Poor</name>
+        <choiceText>Poor</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Strongly_Agree</name>
+        <choiceText>Strongly Agree</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Strongly_Disagree</name>
+        <choiceText>Strongly Disagree</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Very_Good</name>
+        <choiceText>Very Good</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Very_Poor</name>
+        <choiceText>Very Poor</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Via_Email</name>
+        <choiceText>Via Email</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Network</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Via_Internet_Chat</name>
+        <choiceText>Via Internet Chat</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Phone</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Within_10_minutes</name>
+        <choiceText>Within 10 minutes</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Within_2_hours</name>
+        <choiceText>Within 2 hours</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <description>This is the Tech Support Satisfaction Survey used to evaluate how the tech support call was.</description>
+    <label>Tech Support Satisfaction Survey Sample</label>
+    <processType>Flow</processType>
+    <screens>
+        <name>Tech_Support_Survey</name>
+        <label>Tech Support Survey</label>
+        <locationX>358</locationX>
+        <locationY>97</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>ShowSample</name>
+            <fieldText>&lt;SPAN ALIGN=&quot;CENTER&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;{!ttShowHeader}&lt;/FONT&gt;&lt;/SPAN&gt;&lt;DIV ALIGN=&quot;CENTER&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;CENTER&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>header</name>
+            <fieldText>&lt;SPAN ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Verdana&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;B&gt;Satisfaction Survey&lt;/B&gt;&lt;/FONT&gt;&lt;/SPAN&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Verdana&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;We want to know more about your recent call for support. We strive to improve the service and your responses are critical for that.&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Verdana&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Rest assured, your responses will be kept confidential and will not be used for any purpose other than research conducted by our company.&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>How</name>
+            <choiceReferences>In_Person</choiceReferences>
+            <choiceReferences>Over_the_Telephone</choiceReferences>
+            <choiceReferences>Via_Email</choiceReferences>
+            <choiceReferences>Via_Internet_Chat</choiceReferences>
+            <choiceReferences>Other</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>How did you contact technical support?</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Rating</name>
+            <choiceReferences>Very_Good</choiceReferences>
+            <choiceReferences>Good</choiceReferences>
+            <choiceReferences>Average</choiceReferences>
+            <choiceReferences>Poor</choiceReferences>
+            <choiceReferences>Very_Poor</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Overall, how would you rate the process for getting your problem resolved?</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>WaitTime</name>
+            <choiceReferences>I_was_taken_care_of_immediately</choiceReferences>
+            <choiceReferences>Within_10_minutes</choiceReferences>
+            <choiceReferences>Between_10_to_30_minutes</choiceReferences>
+            <choiceReferences>Between_30_minutes_to_an_hour</choiceReferences>
+            <choiceReferences>Between_2_to_4_hours</choiceReferences>
+            <choiceReferences>More_than_4_hours</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>About how long did you have to wait before speaking to a technical support representative?</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Time2Resolution</name>
+            <choiceReferences>Within_2_hours</choiceReferences>
+            <choiceReferences>Between_2_to_4_hours</choiceReferences>
+            <choiceReferences>Between_4_to_8_hours</choiceReferences>
+            <choiceReferences>More_than_12_hours</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>About how long did you have to wait before your issue was resolved?</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>RepHeader</name>
+            <fieldText>&lt;SPAN ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Verdana&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Please tell us how well you agree with the following statements :&lt;/FONT&gt;&lt;/SPAN&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Listen</name>
+            <choiceReferences>Strongly_Agree</choiceReferences>
+            <choiceReferences>Agree</choiceReferences>
+            <choiceReferences>Neutral</choiceReferences>
+            <choiceReferences>Strongly_Disagree</choiceReferences>
+            <choiceReferences>Disagree</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>The Technical Support Representative listened carefully.</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Knowledge</name>
+            <choiceReferences>Strongly_Agree</choiceReferences>
+            <choiceReferences>Agree</choiceReferences>
+            <choiceReferences>Neutral</choiceReferences>
+            <choiceReferences>Strongly_Disagree</choiceReferences>
+            <choiceReferences>Disagree</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>The Technical Support Representative was knowledgeable.</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>patient</name>
+            <choiceReferences>Strongly_Agree</choiceReferences>
+            <choiceReferences>Agree</choiceReferences>
+            <choiceReferences>Neutral</choiceReferences>
+            <choiceReferences>Strongly_Disagree</choiceReferences>
+            <choiceReferences>Disagree</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>The Technical Support Representative was patient.</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Friendly</name>
+            <choiceReferences>Strongly_Agree</choiceReferences>
+            <choiceReferences>Agree</choiceReferences>
+            <choiceReferences>Neutral</choiceReferences>
+            <choiceReferences>Strongly_Disagree</choiceReferences>
+            <choiceReferences>Disagree</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>The Technical Support Representative was friendly.</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Comments</name>
+            <fieldText>Any Additional Comments?</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>EmptySection</name>
+            <fieldText>&lt;SPAN ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;/FONT&gt;&lt;/SPAN&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+    </screens>
+    <startElementReference>Tech_Support_Survey</startElementReference>
+    <textTemplates>
+        <name>ttShowHeader</name>
+        <text>&lt;SPAN ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;1&quot;&gt;&lt;/FONT&gt;&lt;/SPAN&gt;&lt;DIV ALIGN=&quot;CENTER&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;1&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;CENTER&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:16px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;1&quot;&gt;Current Flow sample: &lt;FONT COLOR=&quot;#CC0000&quot;&gt;&lt;B&gt;Tech Support Satisfaction Survey&lt;/B&gt;&lt;/FONT&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;1&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;1&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;1&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;1&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;</text>
+    </textTemplates>
+    <variables>
+        <name>vaFlow</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

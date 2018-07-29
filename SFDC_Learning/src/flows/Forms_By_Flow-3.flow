@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <choices>
+        <name>ContactForm</name>
+        <choiceText>Review Contact Form</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>ContactForm</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Done</name>
+        <choiceText>Am Done with Forms. Take me Back</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Done</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Invoice_Request_Form</name>
+        <choiceText>Review Invoice Request Form</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Invoice Request Form</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>IT_Service_Request_Form</name>
+        <choiceText>Review IT Service Request Form</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>IT Service Request Form</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>LeadForm</name>
+        <choiceText>Review Lead Form</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Lead Form</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>No</name>
+        <choiceText>No</choiceText>
+        <dataType>Boolean</dataType>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Yes</name>
+        <choiceText>Yes</choiceText>
+        <dataType>Boolean</dataType>
+        <value>
+            <booleanValue>true</booleanValue>
+        </value>
+    </choices>
+    <decisions>
+        <name>Try_Forms_Again</name>
+        <label>Try Forms Again?</label>
+        <locationX>437</locationX>
+        <locationY>297</locationY>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Try_Forms_Again</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>vaTryFormsAgain</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>FormsByFlow</targetReference>
+            </connector>
+            <label>Yes, Try Forms Again</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Which_Form</name>
+        <label>Which Form?</label>
+        <locationX>436</locationX>
+        <locationY>37</locationY>
+        <defaultConnectorLabel>None</defaultConnectorLabel>
+        <rules>
+            <name>Contact_Form</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>ContactForm</leftValueReference>
+                <operator>WasSelected</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Run_Contact_Form</targetReference>
+            </connector>
+            <label>Contact Form</label>
+        </rules>
+        <rules>
+            <name>Lead_Form</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>LeadForm</leftValueReference>
+                <operator>WasSelected</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Run_Lead_Form</targetReference>
+            </connector>
+            <label>Lead Form</label>
+        </rules>
+        <rules>
+            <name>IT_SR_Request_Form</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>IT_Service_Request_Form</leftValueReference>
+                <operator>WasSelected</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Run_IT_SR_Req_Form</targetReference>
+            </connector>
+            <label>IT SR Request Form</label>
+        </rules>
+        <rules>
+            <name>InvoiceRequestForm</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Invoice_Request_Form</leftValueReference>
+                <operator>WasSelected</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Run_Invoice_Request_Form</targetReference>
+            </connector>
+            <label>Invoice Request Form</label>
+        </rules>
+    </decisions>
+    <description>This flow introduces the form samples included in the package and lets the user try them out.</description>
+    <label>Forms By Flow</label>
+    <processType>Flow</processType>
+    <screens>
+        <name>FormsByFlow</name>
+        <label>Forms</label>
+        <locationX>54</locationX>
+        <locationY>37</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Which_Form</targetReference>
+        </connector>
+        <fields>
+            <name>Welcome</name>
+            <fieldText>&lt;SPAN ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;B&gt;Forms&lt;/B&gt;&lt;FONT STYLE=&quot;font-size:12px&quot;&gt;&lt;/FONT&gt;&lt;/FONT&gt;&lt;/SPAN&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Forms are a classic use case for Visual Workflow. You can rapidly build your forms in a flow to collect user data, such as the name, address, and date of birth. The flow can then perform logic with that information, such as querying the data in Salesforce and storing the information in a Salesforce record only if it meets criteria that you define. You can even work on data gathered from other systems and include them in the logic defined in the flow.&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;The Visual Workflow Sample Pack a few common forms to help you get started.&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>selectAction</name>
+            <choiceReferences>ContactForm</choiceReferences>
+            <choiceReferences>LeadForm</choiceReferences>
+            <choiceReferences>IT_Service_Request_Form</choiceReferences>
+            <choiceReferences>Invoice_Request_Form</choiceReferences>
+            <choiceReferences>Done</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Here are your choices</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>EmptySection</name>
+            <fieldText>&lt;SPAN ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;/FONT&gt;&lt;/SPAN&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+    </screens>
+    <startElementReference>FormsByFlow</startElementReference>
+    <subflows>
+        <name>Run_Contact_Form</name>
+        <label>Run Contact Form</label>
+        <locationX>435</locationX>
+        <locationY>166</locationY>
+        <connector>
+            <targetReference>Try_Forms_Again</targetReference>
+        </connector>
+        <flowName>Run_Contact_Form</flowName>
+        <outputAssignments>
+            <assignToReference>vaTryFormsAgain</assignToReference>
+            <name>vTryOtherForms</name>
+        </outputAssignments>
+    </subflows>
+    <subflows>
+        <name>Run_Invoice_Request_Form</name>
+        <label>Run Invoice Request Form</label>
+        <locationX>815</locationX>
+        <locationY>161</locationY>
+        <connector>
+            <targetReference>Try_Forms_Again</targetReference>
+        </connector>
+        <flowName>Run_Invoice_Request_Form</flowName>
+        <outputAssignments>
+            <assignToReference>vaTryFormsAgain</assignToReference>
+            <name>vaTryAgain</name>
+        </outputAssignments>
+    </subflows>
+    <subflows>
+        <name>Run_IT_SR_Req_Form</name>
+        <label>Run IT SR Req Form</label>
+        <locationX>816</locationX>
+        <locationY>292</locationY>
+        <connector>
+            <targetReference>Try_Forms_Again</targetReference>
+        </connector>
+        <flowName>Run_IT_Service_Request_Form</flowName>
+        <outputAssignments>
+            <assignToReference>vaTryFormsAgain</assignToReference>
+            <name>vaTryAgain</name>
+        </outputAssignments>
+    </subflows>
+    <subflows>
+        <name>Run_Lead_Form</name>
+        <label>Run Lead Form</label>
+        <locationX>817</locationX>
+        <locationY>38</locationY>
+        <connector>
+            <targetReference>Try_Forms_Again</targetReference>
+        </connector>
+        <flowName>Run_Lead_Form</flowName>
+        <outputAssignments>
+            <assignToReference>vaTryFormsAgain</assignToReference>
+            <name>vaTryAgain</name>
+        </outputAssignments>
+    </subflows>
+    <variables>
+        <name>vaTryFormsAgain</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+</Flow>

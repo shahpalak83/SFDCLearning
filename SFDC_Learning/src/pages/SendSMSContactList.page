@@ -1,0 +1,28 @@
+<apex:page standardController="Contact" tabStyle="Contact" extensions="ContactController" standardStylesheets="false">
+<style>
+        #ContactList .bPageBlock.brandSecondaryBrd.apexDefaultPageBlock.secondaryPalette
+        {
+            margin-top: 20px !important;
+            border: none !important;
+        }
+    </style>
+    <apex:pageBlock id="pg1">
+        <c:masssmscomponent ListRecs="{!ListCon}" listofield="{!fieldList}"/>
+        <apex:form >
+        <!-- <apex:outputLabel >Total no of recs:{!tot}</apex:outputLabel> -->
+        <div align="center">
+             <apex:commandButton value="SendSMS" action="{!SendSMS}" reRender="pgblck"/>  
+             <apex:commandButton value="First Page" action="{!Firstbtn}" disabled="{!prv}" reRender="pg1"/>
+             <apex:commandButton value="PreviousPage" action="{!prvbtn}" disabled="{!prv}" reRender="pg1"/>
+             <apex:commandButton value="NextPage" action="{!Nxtbtn}" disabled="{!nxt}"  reRender="pg1"/>
+             <apex:commandButton value="LastPage" action="{!lstbtn}" disabled="{!nxt}" reRender="pg1"/>
+         </div>
+         Display records per page <apex:selectList value="{!rec}" size="1" >&nbsp;&nbsp;<apex:selectOption itemLabel="10" itemValue="10" ></apex:selectOption>
+       <apex:selectOption itemLabel="20" itemValue="20"></apex:selectOption>
+       <apex:selectOption itemLabel="50" itemValue="50"></apex:selectOption>
+       <apex:selectOption itemLabel="100" itemValue="100"></apex:selectOption>
+       <apex:actionSupport event="onchange" reRender="pg1" action="{!updatePage}"/>
+      </apex:selectList><br/>
+      </apex:form>
+      </apex:pageBlock>
+</apex:page>

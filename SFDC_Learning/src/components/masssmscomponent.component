@@ -1,0 +1,35 @@
+<apex:component controller="MassDeleteController" allowDML="true">
+    <apex:attribute name="listofield" description="List of fields" type="string[]" required="false" assignTo="{!sObjFieldList}"/>
+    <apex:attribute name="ListRecs" type="SObject[]" description="list of records passed" assignTo="{!sObjList}"/>
+    <script type="text/javascript">
+     //check/uncheck the selected records in the selected list
+    function checkAll(cb,cbid){
+            var inputElem = document.getElementsByTagName("input");                    
+            for(var i=0; i<inputElem.length; i++){            
+                 if(inputElem[i].id.indexOf(cbid)!=-1){                                       
+                    inputElem[i].checked = cb.checked;
+                 }
+            }
+    }
+</script>
+<div id="ContactList">
+    <apex:form >
+      <apex:pageBlock id="pgblck">
+          <div style="margin-bottom:5px">
+          <apex:commandButton value="SendSMS" action="{!SMSSelectedRecs}" reRender="pgblck"/> 
+          </div> 
+          <apex:pageBlockTable value="{!ListWrapperMethod}" var="wrapVar" >
+              <apex:repeat value="{!FieldList}" var="fl">
+                  <apex:column value="{!wrapVar.sObjRec[fl]}"/>
+               </apex:repeat>
+               <apex:column >
+               <apex:facet name="header">
+                      <apex:inputCheckbox id="selectAllChecks" value="{!wrapVar.SelectBox}" onclick="checkAll(this,'eachrow')"/>
+               </apex:facet>
+               <apex:inputcheckbox value="{!wrapVar.SelectBox}" id="eachrow"/>
+               </apex:column>
+             </apex:pageBlockTable>
+        </apex:pageBlock>
+  </apex:form>
+  </div>
+</apex:component>
