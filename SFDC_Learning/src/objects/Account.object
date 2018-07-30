@@ -384,6 +384,16 @@ ISPICKVAL(Type, &quot;Installation Partner&quot;)), &quot;Warm&quot;, &quot;Cold
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Test_acc_field12__c</fullName>
+        <externalId>false</externalId>
+        <label>Test Account Field 12</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Test_acc_field__c</fullName>
         <externalId>false</externalId>
         <label>Test Account Field</label>
