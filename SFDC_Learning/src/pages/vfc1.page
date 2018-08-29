@@ -1,4 +1,0 @@
-<apex:page controller="cc1">
-    My Name is: {!Method1} <br/>
-    The Result is: {!Method2} 
-</apex:page>

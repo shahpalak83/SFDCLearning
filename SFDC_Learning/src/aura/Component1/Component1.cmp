@@ -1,3 +1,0 @@
-<aura:component implements="flexipage:availableForAllPageTypes" access="global">
-	THis is my first Lightening Component!	
-</aura:component>
